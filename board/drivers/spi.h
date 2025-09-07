@@ -3,8 +3,12 @@
 #include "board/drivers/spi_declarations.h"
 #include "board/crc.h"
 
+#ifdef STM32H7
 uint8_t spi_buf_rx[SPI_BUF_SIZE];
 uint8_t spi_buf_tx[SPI_BUF_SIZE];
+#else
+#define SPI_BUF_SIZE 1024U
+#endif
 
 uint16_t spi_error_count = 0;
 
